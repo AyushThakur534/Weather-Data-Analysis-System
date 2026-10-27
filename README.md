@@ -1,151 +1,284 @@
-# WeatherScope — Weather Intelligence & Analytics Dashboard
+# 🌦️ Weather Data Analysis System
 
-A portfolio-quality Python weather analytics web app built with Streamlit, Pandas, NumPy, Plotly, and the Open-Meteo APIs.
+**An interactive Python-based dashboard for live weather monitoring, weather forecasting, historical weather analysis, and weather data exploration.**
 
-## Features
+WeatherScope is a data analytics project developed using Python that transforms weather data into meaningful insights through interactive visualizations, statistical analysis, and data preprocessing. It integrates the Open-Meteo API with a Streamlit dashboard to provide users with an accessible way to explore current weather conditions, forecast trends, and historical weather patterns.
 
-- Search for a city using Open-Meteo geocoding.
-- Live/current weather-model conditions.
-- Hourly charts for temperature, precipitation probability, humidity, and wind.
-- Daily forecast charts and a downloadable forecast CSV.
-- Historical daily weather archive retrieval for a chosen date range.
-- Historical temperature, precipitation, temperature-versus-rainfall, and correlation visualizations.
-- Upload a CSV dataset and explore data quality, descriptive statistics, and charts.
-- Download cleaned CSV, historical CSV, and forecast CSV.
-- Responsive dark dashboard styling.
-- No machine-learning temperature prediction.
+## 📌 Table of Contents
 
-## Requirements
+- [Project Overview](#-project-overview)
+- [Objectives](#-objectives)
+- [Features](#-features)
+- [Technologies Used](#-technologies-used)
+- [System Workflow](#-system-workflow)
+- [Project Structure](#-project-structure)
+- [Data Sources](#-data-sources)
+- [Installation and Setup](#-installation-and-setup)
+- [How to Run](#-how-to-run)
+- [Data Analysis and Visualization](#-data-analysis-and-visualization)
+- [Data Preprocessing](#-data-preprocessing)
+- [Applications](#-applications)
+- [Limitations](#-limitations)
+- [Future Enhancements](#-future-enhancements)
+- [Author](#-author)
+- [License](#-license)
 
-- Python 3.11 or newer (Python 3.11–3.13 recommended for a predictable setup).
-- Internet connection for live and historical API data.
-- Windows, macOS, or Linux.
+## 📖 Project Overview
 
-## Quick start (Windows PowerShell)
+Weather data plays an important role in environmental monitoring, agriculture, transportation, travel planning, and everyday decision-making. However, raw weather data can be difficult to interpret without proper analysis and visualization.
+
+WeatherScope addresses this problem by providing an interactive dashboard that retrieves, processes, analyzes, and visualizes weather information. Users can explore live weather conditions, examine forecast trends, analyze historical weather records, and upload their own CSV files for data exploration.
+
+The project demonstrates the practical application of Python programming, data analytics, data preprocessing, statistical functions, API integration, and interactive dashboard development.
+
+## 🎯 Objectives
+
+- Retrieve current weather information from an external weather API.
+- Display multi-day weather forecasts in an interactive dashboard.
+- Analyze historical weather data to identify patterns and trends.
+- Perform data cleaning and preprocessing on uploaded datasets.
+- Generate interactive charts and statistical summaries.
+- Allow users to explore and download analyzed weather data.
+- Demonstrate practical Python and data analytics concepts.
+
+## ✨ Features
+
+### 1. Live Weather Overview
+- Retrieve current weather conditions for a selected location.
+- Display temperature, relative humidity, wind speed, and other available weather measurements.
+- Present key weather indicators using dashboard metrics.
+- Visualize hourly weather trends.
+
+### 2. Weather Forecast Analysis
+- Explore upcoming weather conditions.
+- Visualize forecasted temperature and other available weather variables.
+- Examine hourly and daily forecast trends.
+- View forecast information in charts and tables.
+
+### 3. Historical Weather Analysis
+- Retrieve historical weather records for a selected location and date range.
+- Analyze temperature, precipitation, wind, and other available variables.
+- Identify changes and trends over time.
+- Visualize historical weather patterns using interactive charts.
+
+### 4. CSV Data Explorer
+- Upload weather datasets in CSV format.
+- Inspect dataset structure, columns, and data types.
+- Review missing values and duplicate records.
+- Generate descriptive statistics.
+- Create visualizations from available numeric weather variables.
+- Download processed data for further analysis.
+
+### 5. Interactive Dashboard
+- User-friendly interface developed with Streamlit.
+- Interactive visualizations powered by Plotly.
+- Location and date selection for supported analysis features.
+- Data tables and downloadable CSV outputs.
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Streamlit | Interactive web dashboard |
+| Pandas | Data manipulation and analysis |
+| NumPy | Numerical computations |
+| Plotly | Interactive data visualization |
+| Requests | HTTP requests and API integration |
+| Open-Meteo API | Weather forecasts and historical weather data |
+| CSV | Weather dataset storage and exchange |
+| Git and GitHub | Version control and project hosting |
+
+## 🔄 System Workflow
+
+1. **Data Collection:** Retrieve weather information from the Open-Meteo API or load a user-provided CSV dataset.
+2. **Data Processing:** Organize data into structured Pandas DataFrames and handle supported cleaning operations.
+3. **Data Analysis:** Calculate descriptive statistics and examine weather variables.
+4. **Data Visualization:** Generate interactive charts and graphical summaries.
+5. **Dashboard Presentation:** Display results through the Streamlit interface.
+6. **Data Export:** Allow users to download available analysis results.
+
+## 📁 Project Structure
+
+```text
+Weather-Data-Analysis-System/
+│
+├── app.py
+│
+├── requirements.txt
+│
+├── README.md
+│
+├── .gitignore
+│
+└── data/
+    └── sample_weather_illustrative.csv
+```
+
+**File descriptions:**
+
+- `app.py` — Main Streamlit application containing dashboard functionality, API integration, analysis, and visualizations.
+- `requirements.txt` — Python dependencies required to run the project.
+- `README.md` — Project documentation.
+- `.gitignore` — Specifies files and directories Git should ignore.
+- `data/` — Contains the sample weather dataset for demonstration and testing.
+
+## 🌐 Data Sources
+
+WeatherScope uses the **Open-Meteo API** to retrieve weather information.
+
+- **Geocoding API:** Resolves supported location searches into geographic coordinates.
+- **Forecast API:** Provides current conditions and forecast data for supported locations.
+- **Historical Weather API:** Provides historical weather records for supported dates and locations.
+
+Official resources:
+
+- [Open-Meteo Website](https://open-meteo.com/)
+- [Open-Meteo Forecast API Documentation](https://open-meteo.com/en/docs)
+- [Open-Meteo Historical Weather API Documentation](https://open-meteo.com/en/docs/historical-weather-api)
+
+The application may require an internet connection to retrieve live and historical API data. API availability, date coverage, and usage terms depend on the selected service and its applicable policies.
+
+## ⚙️ Installation and Setup
+
+### Prerequisites
+
+Ensure that the following are installed on your system:
+
+- Python 3.11 or a compatible supported Python version
+- pip
+- Git (optional, for cloning the repository)
+- An internet connection for API-based features
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/AyushThakur534/Weather-Data-Analysis-System.git
+```
+
+### Step 2: Navigate to the Project Directory
+
+```bash
+cd Weather-Data-Analysis-System
+```
+
+### Step 3: Create a Virtual Environment
+
+On Windows:
 
 ```powershell
-cd WeatherScope
 py -3.11 -m venv .venv
+```
+
+### Step 4: Activate the Virtual Environment
+
+```powershell
 .\.venv\Scripts\Activate.ps1
+```
+
+If PowerShell blocks activation, you can use the environment's Python executable directly in the next step.
+
+### Step 5: Install Dependencies
+
+```powershell
 python -m pip install --upgrade pip
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
+```
+
+## ▶️ How to Run
+
+Start the Streamlit application:
+
+```powershell
 python -m streamlit run app.py
 ```
 
-If PowerShell blocks activation, you can run the environment's Python directly:
+Alternatively, without activating the virtual environment:
 
 ```powershell
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
-## Quick start (macOS/Linux)
+Once the application starts, open the local URL shown in the terminal, usually:
 
-```bash
-cd WeatherScope
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-python -m streamlit run app.py
-```
+`http://localhost:8501`
 
-Streamlit will print a local URL, usually `http://localhost:8501`. Open it in your browser.
+Use the dashboard navigation to explore live weather, forecasts, historical analysis, and CSV data.
 
-## How to use
+## 📊 Data Analysis and Visualization
 
-1. Enter a city in the sidebar (the initial example is Ludhiana).
-2. Choose the forecast horizon.
-3. Inspect current conditions and the Live Overview tab.
-4. Open Forecast to inspect daily highs/lows, precipitation, and UV index when available.
-5. In Historical Analysis, select a date range and click **Load historical data**.
-6. In Upload CSV, upload your own weather dataset to inspect missing values and descriptive statistics.
-7. Use download buttons to export data.
+WeatherScope uses data analytics techniques to explore and summarize weather information.
 
-## CSV dataset guidance
+The analysis may include:
 
-You can upload a CSV from a weather station, a course dataset, or a public data portal. Use a header row and a date/time column where possible.
+- Mean, minimum, and maximum temperature.
+- Relative humidity and wind-speed analysis.
+- Precipitation summaries.
+- Hourly and daily weather trends.
+- Descriptive statistics for uploaded datasets.
+- Missing-value and duplicate-record analysis.
+- Interactive line charts and other suitable visualizations.
 
-Example compatible headers:
+The available measurements and charts depend on the data returned by the API or supplied in the uploaded dataset.
 
-```csv
-date,temperature,humidity,rainfall,wind_speed
-2025-01-01,18.4,65,0.0,12.0
-2025-01-02,20.1,58,2.2,10.5
-2025-01-03,16.8,78,8.1,18.2
-```
+## 🧹 Data Preprocessing
 
-The numbers above are illustrative examples only, not real weather observations. The uploader recognizes common alternatives such as `datetime`, `temp`, `temperature_c`, `relative_humidity`, `rain_mm`, and `windspeed`. Unrecognized columns are preserved. The app does not invent or impute weather measurements.
+The CSV Explorer supports practical data preparation and quality inspection.
 
-For a real historical dataset, suitable sources include:
-- Open-Meteo Historical Weather API: https://open-meteo.com/en/docs/historical-weather-api
-- Open-Meteo API documentation: https://open-meteo.com/en/docs
-- Official meteorological services or a dataset supplied by your instructor.
+1. **Data Loading:** Read CSV files into Pandas DataFrames.
+2. **Data Inspection:** Review columns, dimensions, data types, and sample records.
+3. **Missing-Value Analysis:** Identify incomplete fields.
+4. **Duplicate Detection:** Inspect repeated records.
+5. **Data-Type Handling:** Identify columns suitable for numerical analysis and visualization.
+6. **Statistical Analysis:** Generate descriptive summaries for supported numeric columns.
+7. **Data Export:** Download available processed results for further analysis.
 
-## API details
+Preprocessing operations depend on the structure and quality of the uploaded dataset.
 
-- Geocoding: `https://geocoding-api.open-meteo.com/v1/search`
-- Current and forecast: `https://api.open-meteo.com/v1/forecast`
-- Historical archive: `https://archive-api.open-meteo.com/v1/archive`
+## 🌍 Applications
 
-The project uses HTTP requests with timeouts and Streamlit caching. API access requires internet connectivity. No API key is required for the standard Open-Meteo endpoints used here, subject to their applicable usage terms.
+- Weather monitoring and exploration.
+- Historical weather trend analysis.
+- Educational demonstrations of Python data analytics.
+- Environmental data exploration.
+- Basic weather-data reporting.
+- CSV-based data analysis and visualization.
 
-## Project structure
+## ⚠️ Limitations
 
-```text
-WeatherScope/
-├── app.py
-├── requirements.txt
-├── README.md
-├── data/
-└── assets/
-```
+- Live and historical API features require network connectivity.
+- Data availability depends on the selected location, date range, and API coverage.
+- Weather forecasts are estimates and may differ from actual conditions.
+- Uploaded datasets may require additional cleaning depending on their format and quality.
+- The project is an analytical dashboard, not a machine-learning weather prediction system.
 
-The `data/` and `assets/` folders are intentionally included for your own datasets and design assets.
+## 🚀 Future Enhancements
 
-## Data handling and methodology
+- Add more weather indicators and customizable analytical reports.
+- Support additional weather datasets and data providers.
+- Add geographical weather maps and location comparisons.
+- Implement advanced time-series statistical analysis.
+- Improve automated data-quality checks.
+- Add report export functionality in formats such as PDF and Excel.
+- Add dashboard caching and performance optimizations.
 
-- Uploaded CSVs are parsed with Pandas.
-- Common field names are normalized to consistent names.
-- Numeric columns are converted to numeric types where recognized.
-- Duplicate rows are removed from uploaded CSVs.
-- Invalid dates and missing cells are reported rather than silently fabricated.
-- Descriptive statistics, time-series trends, precipitation summaries, and correlations are visualized using Plotly.
-- Historical archive values are reanalysis data; forecasts are model-based estimates. They are not guaranteed station observations.
+## 👨‍💻 Author
 
-## Troubleshooting
+**Ayush Thakur**
+UID: 24BCA10069  
+Department: UIC-BCA  
+Project: Python — Weather Data Analysis System
 
-**`python` or `py` is not recognized**
-- Install Python 3.11+ and select “Add Python to PATH” in the Windows installer.
-- Reopen the terminal after installing Python.
+## Contact Deatils
 
-**Streamlit command is not found**
-- Activate `.venv`, then run `python -m streamlit run app.py`.
+Linkedin:-ayushthakur.in
 
-**API connection error**
-- Check your internet connection, retry, and verify that your network allows access to Open-Meteo endpoints.
-- Try a nearby major city if geocoding returns no match.
+Email:-git@ayushthakur.in
 
-**Historical API returns no data**
-- Check the selected date range and try a shorter range. Data availability varies by location and variable.
+## 📄 License
 
-**CSV chart has no date axis**
-- Ensure your file has a column named `date`, `time`, `datetime`, or `timestamp`. Otherwise, numeric distributions can still be visualized.
+This project is intended for educational and portfolio purposes. If you plan to distribute or reuse it, add an appropriate open-source license file and review the terms of the external APIs and datasets used.
 
-## Deployment
+---
 
-You can deploy the repository to Streamlit Community Cloud by pushing it to GitHub, selecting `app.py` as the app entry point, and using `requirements.txt` for dependencies. Do not commit private data or secrets. For public deployment, review Open-Meteo's current terms, attribution requirements, fair-use limits, and your application's expected request volume.
-
-Streamlit deployment docs: https://docs.streamlit.io/deploy
-
-## Academic project summary
-
-**Title:** Weather Data Analysis System Using Python  
-**Application name:** WeatherScope — Weather Intelligence & Analytics Dashboard  
-**Objective:** Collect, validate, analyze, visualize, and export live, forecast, historical, and user-provided weather data in an interactive dashboard.  
-**Tools:** Python, Streamlit, Pandas, NumPy, Plotly, Requests, Open-Meteo API.  
-**Expected outcome:** An interactive dashboard that presents weather indicators, forecast trends, historical summaries, data-quality diagnostics, and downloadable datasets.
-
-## License and attribution
-
-This project code is provided as an educational starter project. Weather data is supplied by Open-Meteo; attribute the source and review its current terms: https://open-meteo.com/
+**WeatherScope — Turning weather data into meaningful insights through Python and data analytics.**
